@@ -16,7 +16,7 @@ public partial class Vcrud : ContentPage
     public Vcrud()
 	{
 		InitializeComponent();
-		MostrarEstudiantes();
+		
 	}
 
 	public async void MostrarEstudiantes() 
@@ -26,4 +26,21 @@ public partial class Vcrud : ContentPage
 		_ProductTem = new ObservableCollection<Products>(lista);
 		lvproducts.ItemsSource = _ProductTem;
 	}
+
+    protected override void OnAppearing()
+    {
+		base.OnAppearing();
+		MostrarEstudiantes();
+    }
+    private void btnanadir_Clicked(object sender, EventArgs e)
+    {
+		Navigation.PushAsync(new vAnadir());
+    }
+
+    private void lvproducts_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+    {
+		var obProducto = (Products)e.SelectedItem;
+		Navigation.PushAsync(new vActualizarEliminar(obProducto));
+
+    }
 }

@@ -27,7 +27,7 @@
             <Label Grid.Row="0" Grid.Column="1" Text="Nombre" HorizontalOptions="Center"/>
             <Label Grid.Row="0" Grid.Column="2" Text="Precio" HorizontalOptions="Center"/>
 
-            <ListView x:Name="lvproducts" Grid.Row="1" Grid.ColumnSpan="3">
+            <ListView x:Name="lvproducts" Grid.Row="1" Grid.ColumnSpan="3" ItemSelected="lvproducts_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -47,6 +47,10 @@
                 </ListView.ItemTemplate>
             </ListView>
         </Grid>
+
+        <Button x:Name="btnanadir"
+                Text="Añadir Producto"
+                Clicked="btnanadir_Clicked"/>
 
     </VerticalStackLayout>
 </ContentPage>
